@@ -1,6 +1,11 @@
 import React from 'react'
 import '../styles/globals.css'
 import '../styles/index.css'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faMoon, faSun)
 
 function RootLayout({children}: {
     children: React.ReactNode
