@@ -1,11 +1,12 @@
 
 'use client'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Navbar, Home } from './components'
 
 
 function AppWrapper() {
-  const [darkMode, setDarkMode] = useState<boolean>(false)
+
+  const [darkMode, setDarkMode] = useState<boolean | null>(JSON.parse(localStorage.getItem('darkmode')))
   return (
     <div className={darkMode ? "dark" : ""}>
       <div 

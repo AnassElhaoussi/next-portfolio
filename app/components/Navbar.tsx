@@ -7,10 +7,12 @@ import { faSun } from '@fortawesome/free-solid-svg-icons'
 
 
 function Navbar({darkMode, setDarkMode}: INavProps) {
+  const rightPaddingVal = localStorage.getItem('padding-right')
+  const leftPaddingVal = localStorage.getItem('padding-left')
   return (
     <div className="flex gap-10 z-10 justify-between items-center flex-wrap gap-y-5">
       <span className="text-3xl font-bold text-gray-800 dark:text-gray-100">EAnass</span>
-      <div className="space-x-10 dark:text-gray-300">
+      <div className="space-x-10 dark:text-gray-300 lg:text-base text-[2.5vw] ">
         <a href="">Home</a>
         <a href="">About</a>
         <a href="">Experience</a>
@@ -22,10 +24,19 @@ function Navbar({darkMode, setDarkMode}: INavProps) {
         className='dark:bg-gray-800 bg-gray-200 px-8 py-2 rounded-md hover:scale-125 transition-all cursor-pointer dark:text-white'
         style={
           darkMode 
-          ? {paddingRight: "5px"} 
-          : {paddingLeft: "5px"}
+          ? {paddingRight: rightPaddingVal} 
+          : {paddingLeft: leftPaddingVal}
         }
-        onClick={() => setDarkMode(!darkMode)}
+        onClick={() => {
+          const currentStateValue = !darkMode
+          setDarkMode((currValue) => !currValue)
+          localStorage.setItem('darkmode', currentStateValue)
+          if(currentStateValue) {
+            localStorage.setItem('padding-right', "5px")
+          } else {
+            localStorage.setItem('padding-left', "5px")
+          }
+        }}
       />
 
     </div>
