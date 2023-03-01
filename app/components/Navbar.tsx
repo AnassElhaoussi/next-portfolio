@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { INavProps } from '../../types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
@@ -24,13 +24,13 @@ function Navbar({darkMode, setDarkMode}: INavProps) {
         className='dark:bg-gray-800 bg-gray-200 px-8 py-2 rounded-md hover:scale-125 transition-all cursor-pointer dark:text-white'
         style={
           darkMode 
-          ? {paddingRight: rightPaddingVal} 
-          : {paddingLeft: leftPaddingVal}
+          ? {paddingRight: rightPaddingVal} as CSSProperties
+          : {paddingLeft: leftPaddingVal} as CSSProperties
         }
         onClick={() => {
           const currentStateValue = !darkMode
           setDarkMode((currValue) => !currValue)
-          localStorage.setItem('darkmode', currentStateValue)
+          localStorage.setItem('darkmode', JSON.stringify(currentStateValue))
           if(currentStateValue) {
             localStorage.setItem('padding-right', "5px")
           } else {
