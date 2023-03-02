@@ -1,7 +1,7 @@
 
 'use client'
 import React, {useEffect, useState} from 'react'
-import { Navbar, Home } from './components'
+import { Navbar, Home } from './Pages'
 
 
 function AppWrapper() {
@@ -18,8 +18,7 @@ function AppWrapper() {
         <Navbar 
         darkMode={darkMode} 
         setDarkMode={setDarkMode} />
-        <Home />
-        <div className='absolute w-60 h-60 bottom-0 right-0 bg-blue-200 dark:bg-inherit rounded-full blur-3xl'></div>
+        <Home darkMode={darkMode} />
       </div>
     </div>
   )
