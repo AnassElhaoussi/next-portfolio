@@ -7,9 +7,8 @@ import { faSun } from '@fortawesome/free-solid-svg-icons'
 
 
 function Navbar({darkMode, setDarkMode}: INavProps) {
-  const rightPaddingVal = localStorage.getItem('padding-right')
-  const leftPaddingVal = localStorage.getItem('padding-left')
-  const [isWindowWidthValid, setIsWindowWidthValid] = useState(false)
+  const rightPaddingVal = window !== null && localStorage.getItem('padding-right')
+  const leftPaddingVal = window !== null && localStorage.getItem('padding-left')
 
   return (
     <div className="flex gap-10 z-10 justify-between items-center flex-wrap gap-y-5">

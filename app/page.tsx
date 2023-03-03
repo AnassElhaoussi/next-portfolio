@@ -7,7 +7,7 @@ import { Navbar, Home } from './Pages'
 function AppWrapper() {
 
   const [darkMode, setDarkMode] = useState<boolean>(
-    JSON.parse(localStorage.getItem('dark-mode') as string)
+    window !== null && JSON.parse(localStorage.getItem('dark-mode') as string)
   )
   return (
     <div className={darkMode ? "dark" : ""}>
