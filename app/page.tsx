@@ -3,12 +3,12 @@
 import React, {useEffect, useState} from 'react'
 import { Navbar, Home } from './Pages'
 
-
 function AppWrapper() {
-
-  const [darkMode, setDarkMode] = useState<boolean>(
-    window !== null && JSON.parse(localStorage.getItem('dark-mode') as string)
+  const [darkMode, setDarkMode] = useState(
+      typeof window !== "undefined" &&
+      JSON.parse(localStorage.getItem('dark-mode') as string)
   )
+
   return (
     <div className={darkMode ? "dark" : ""}>
       <div 
